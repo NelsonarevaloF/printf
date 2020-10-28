@@ -1,4 +1,4 @@
-.TH man 0 "26 October 2020" "1.0" "_printf man page"
+.TH _PRINTF (0) "26 October 2020" "1.0" "_printf Man Page"
 .SH NAME
 .B _printf
 - Prints according to a format.
@@ -35,11 +35,43 @@ Prints an integer with sign in base 10.
 Prints an integer with sign in base 10.
 .IP -c
 Prints the character based on the value sotored at the
+.IP -s
+Prints a string character by character.
 .I ASCII
 table.
 
 .IP print_s
 The function will print a string.
+
+.SH Examples of how to use
+
+.IP -%d and %i:
+
+.BR _printf("Length:[%d, %i]\n", len, len);
+
+.IP -%c
+
+.BR _printf("Character:[%c]\n", 'H');
+
+.IP -%s
+
+.BR _printf("String:[%s]\n", "I am a string !");
+
+
+.SH Functions used
+
+va_start, va_end, va_copy,
+va_arg and our own version of _putchar
+
+.SH File List
+
+.IP - _printf is the main function.
+.IP - print_s This function prints strings.
+.IP - print_c This function prints characters.
+.IP - print_i This function prints integers.
+.IP - get_print This function evaluates the cases for special characters.
+.IP - _putchar This function is our own version of putchar. It uses write and it counts the characters printed.
+
 .SH SEE ALSO
 printf(3)
 .SH BUGS
