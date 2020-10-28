@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	int i = 0, wall = 0, count = 0;
 
 	va_start(list, format);
-	while (format && format[i])
+	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
@@ -27,6 +27,9 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
+
+		if (format[i] == '%' && (format[i + 1] == ' ' || format[i + 1] == '\0'))
+			return (-1);
 		if (format[i] == '%' && wall == 1)
 		{
 			_putchar(format[i], &count);
