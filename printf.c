@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	int i = 0, wall = 0, count = 0;
 
 	va_start(list, format);
+	if (!format)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
